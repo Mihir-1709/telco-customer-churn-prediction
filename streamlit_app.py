@@ -173,16 +173,16 @@ if submitted:
         if col in input_df.columns:
             input_df[col] = input_df[col].astype(str)
 
-try:
-    prediction = model.predict(input_df)
-    proba_array = model.predict_proba(input_df)
-    if proba_array.shape[1] == 2:
-        proba = proba_array[0][1]
-    else:
-        proba = proba_array[0]
+    try:
+        prediction = model.predict(input_df)
+        proba_array = model.predict_proba(input_df)
+        if proba_array.shape[1] == 2:
+            proba = proba_array[0][1]
+        else:
+            proba = proba_array[0]
+    
+        st.success("✅ Customer is likely to stay!" if prediction[0] == 0 else "⚠️ Customer is likely to churn!")
+        st.info(f"Churn Probability: {proba * 100:.2f}%")
 
-    st.success("✅ Customer is likely to stay!" if prediction[0] == 0 else "⚠️ Customer is likely to churn!")
-    st.info(f"Churn Probability: {proba * 100:.2f}%")
-
-except Exception as e:
-    st.error(f"Prediction failed: {e}")
+    except Exception as e:
+        st.error(f"Prediction failed: {e}")
