@@ -36,10 +36,13 @@ internet = sidebar_multiselect("InternetService", "internet_key")
 contract = sidebar_multiselect("Contract", "contract_key")
 payment = sidebar_multiselect("PaymentMethod", "payment_key")
 
-if st.sidebar.button("🔄 Reset Filters"):
+def reset_filters_and_rerun():
     for key in ["gender_key", "senior_key", "partner_key", "dependents_key", "internet_key", "contract_key", "payment_key"]:
-        st.session_state.pop(key, None)  # safer deletion
+        st.session_state.pop(key, None)
     st.experimental_rerun()
+
+if st.sidebar.button("🔄 Reset Filters"):
+    reset_filters_and_rerun()
 
 # Apply Filters
 filtered_df = df.copy()
