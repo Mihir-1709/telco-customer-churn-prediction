@@ -38,8 +38,7 @@ payment = sidebar_multiselect("PaymentMethod", "payment_key")
 
 if st.sidebar.button("🔄 Reset Filters"):
     for key in ["gender_key", "senior_key", "partner_key", "dependents_key", "internet_key", "contract_key", "payment_key"]:
-        if key in st.session_state:
-            del st.session_state[key]
+        st.session_state.pop(key, None)  # safer deletion
     st.experimental_rerun()
 
 # Apply Filters
