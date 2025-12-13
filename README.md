@@ -112,65 +112,42 @@ streamlit run streamlit_app.py
 
 ## 📸 Screenshots
 
-### 1️⃣ Dashboard Overview & KPIs
-Displays the main dashboard with key metrics including:
-- Total Customers
-- Churn Rate (%)
-- Average Monthly Charges
+### 1️⃣ Dashboard Overview & Filters
+Shows the main dashboard with:
+- Sidebar filter options (Gender, Senior Citizen, Partner, Dependents, etc.)
+- KPI cards for Total Customers, Churn Rate, and Average Monthly Charges
 
-![Dashboard Overview](screenshots/dashboard_overview.png)
+<img width="1919" height="910" alt="Dashboard Overview" src="https://github.com/user-attachments/assets/f04718aa-e1bc-4b9b-8f00-bcf5ee3cf05e" />
 
----
-
-### 2️⃣ Interactive Filters
-Sidebar filters to dynamically slice customer data by:
-- Gender
-- Senior Citizen
-- Partner
-- Dependents
-- Internet Service
-- Contract
-- Payment Method
-
-![Filter Options](screenshots/filters.png)
 
 ---
 
-### 3️⃣ Filtered Customer Data
-Shows a live, filter-driven table of customer records based on selected criteria.
+### 2️⃣ Filtered Data View
+Demonstrates dynamic filtering of customer records based on selected criteria, with real-time KPI updates.
 
-![Filtered Data Table](screenshots/filtered_data.png)
+<img width="1919" height="909" alt="Filtered Data" src="https://github.com/user-attachments/assets/e8146461-7a44-4b6c-b963-ab3c76fd3e5f" />
+
 
 ---
 
-### 4️⃣ Churn Visualizations
+### 3️⃣ Churn Analysis Visualizations
 Visual insights including:
 - Churn distribution (bar chart)
 - Churn distribution (pie chart)
 - Total charges by churn (box plot)
-- Contract type vs churn (bar chart)
+- Contract type vs churn
 
-![Churn Visualizations](screenshots/visualizations.png)
+<img width="1919" height="910" alt="Churn Visualizations" src="https://github.com/user-attachments/assets/6260f9df-9cef-4a63-afc1-89c785dac9ae" />
 
----
-
-### 5️⃣ Churn Prediction Form
-User-friendly form to input customer details such as:
-- Demographics
-- Tenure
-- Services
-- Billing and payment details
-
-![Prediction Form](screenshots/prediction_form.png)
 
 ---
 
-### 6️⃣ Prediction Result
-Displays:
+### 4️⃣ Churn Prediction & Result
+Interactive prediction form with customer inputs and final output showing:
 - Churn prediction (Stay / Churn)
 - Churn probability percentage
 
-![Prediction Result](screenshots/prediction_result.png)
+<img width="1919" height="871" alt="Churn Prediction" src="https://github.com/user-attachments/assets/6b2be5f0-ca71-4783-bd8e-e419ac5efb82" />
 
 ---
 
@@ -241,3 +218,4 @@ This project is licensed under the **MIT License**.
 * Kaggle Telco Customer Churn Dataset
 * Built with **Python, scikit-learn, Streamlit, Pandas, Matplotlib, Seaborn**
 ```
+
