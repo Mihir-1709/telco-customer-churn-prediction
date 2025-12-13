@@ -218,4 +218,3 @@ This project is licensed under the **MIT License**.
 * Kaggle Telco Customer Churn Dataset
 * Built with **Python, scikit-learn, Streamlit, Pandas, Matplotlib, Seaborn**
 ```
-
