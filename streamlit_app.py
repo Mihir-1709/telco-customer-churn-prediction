@@ -4,6 +4,12 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import joblib
 
+@st.cache_resource
+def load_model():
+    return joblib.load("best_rf_model.pkl"), joblib.load("model_features.pkl")
+
+model, features = load_model()
+
 # Load dataset
 df = pd.read_csv("Telco-Customer-Churn.csv")
 df.drop(['customerID'], axis=1, inplace=True)
@@ -82,6 +88,10 @@ st.dataframe(filtered_df, use_container_width=True)
 csv = filtered_df.to_csv(index=False).encode('utf-8')
 st.download_button("⬇️ Download CSV", csv, "filtered_customer_churn.csv", "text/csv")
 
+if filtered_df.empty:
+    st.warning("No data available for selected filters.")
+    st.stop()
+
 # Visualizations
 st.divider()
 st.subheader("📈 Visual Insights")
@@ -94,8 +104,8 @@ with col1:
     st.pyplot(fig1)
 with col2:
     fig2, ax2 = plt.subplots()
-    counts = filtered_df['Churn'].value_counts()
-    ax2.pie(counts, labels=["No", "Yes"], autopct='%1.1f%%', colors=['#66b3ff', '#ff9999'], startangle=90)
+    counts = filtered_df['Churn'].value_counts().sort_index()
+    ax2.pie(counts, labels=["No", "Yes"], autopct='%1.1f%%', startangle=90)
     ax2.set_title("Churn Distribution (Pie)")
     ax2.axis('equal')
     st.pyplot(fig2)
@@ -133,7 +143,7 @@ with st.form("prediction_form"):
         if col == 'Gender':
             customer_input[col] = st.selectbox("Gender", ["Male", "Female"])
         elif col == 'SeniorCitizen':
-            customer_input[col] = st.selectbox("Senior Citizen", ["No", "Yes"])
+            customer_input[col] = st.selectbox("Senior Citizen", ["0", "1"], format_func=lambda x: "Yes" if x == "1" else "No")
         elif col == 'Partner':
             customer_input[col] = st.selectbox("Has Partner", ["No", "Yes"])
         elif col == 'Dependents':
