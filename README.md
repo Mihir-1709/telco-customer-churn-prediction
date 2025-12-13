@@ -37,7 +37,7 @@ telco-customer-churn-prediction/
 ├── requirements.txt         # Project dependencies
 ├── README.md
 
-````
+```
 
 ---
 
@@ -47,7 +47,7 @@ telco-customer-churn-prediction/
 ```bash
 git clone https://github.com/Mihir-1709/telco-customer-churn-prediction
 cd telco-customer-churn-prediction
-````
+```
 
 ---
 
@@ -119,14 +119,12 @@ Shows the main dashboard with:
 
 <img width="1919" height="910" alt="Dashboard Overview" src="https://github.com/user-attachments/assets/f04718aa-e1bc-4b9b-8f00-bcf5ee3cf05e" />
 
-
 ---
 
 ### 2️⃣ Filtered Data View
 Demonstrates dynamic filtering of customer records based on selected criteria, with real-time KPI updates.
 
 <img width="1919" height="909" alt="Filtered Data" src="https://github.com/user-attachments/assets/e8146461-7a44-4b6c-b963-ab3c76fd3e5f" />
-
 
 ---
 
@@ -138,7 +136,6 @@ Visual insights including:
 - Contract type vs churn
 
 <img width="1919" height="910" alt="Churn Visualizations" src="https://github.com/user-attachments/assets/6260f9df-9cef-4a63-afc1-89c785dac9ae" />
-
 
 ---
 
@@ -217,4 +214,3 @@ This project is licensed under the **MIT License**.
 
 * Kaggle Telco Customer Churn Dataset
 * Built with **Python, scikit-learn, Streamlit, Pandas, Matplotlib, Seaborn**
-```
