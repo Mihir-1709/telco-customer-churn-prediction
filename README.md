@@ -1,118 +1,243 @@
-﻿# Telco Customer Churn Prediction
+# 📊 Telco Customer Churn Prediction
 
-This project provides an interactive dashboard and machine learning pipeline to analyze and predict customer churn for a telecom company. Users can explore customer churn behavior, visualize key insights, and make churn predictions based on customer features.
-
----
-
-## Features
-
-- **Data Exploration:** Interactive filters to slice customer data by demographics and service attributes.
-- **Key Performance Indicators (KPIs):** View total customers, churn rate, and average monthly charges dynamically.
-- **Visual Insights:** Distribution plots of churn, contract types, and charges.
-- **Churn Prediction:** Form-based interactive input to predict if a customer is likely to churn using a tuned Random Forest model.
+This project provides an **interactive Streamlit dashboard** and a **machine learning pipeline** to analyze and predict customer churn for a telecom company.  
+Users can explore churn behavior, visualize key insights, and predict whether a customer is likely to churn using a **trained Random Forest model**.
 
 ---
 
-## Project Structure
+## 🚀 Features
 
-- `app.py`: Model training script that preprocesses data, trains a Random Forest classifier with hyperparameter tuning, and saves the trained model and feature list.
-- `streamlit_app.py`: Streamlit dashboard app for data visualization and interactive churn prediction.
-- `Telco-Customer-Churn.csv`: Dataset containing telecom customer data.
-- `best_rf_model.pkl`: Saved Random Forest model pipeline used for predictions.
-- `model_features.pkl`: List of features used by the trained model.
-- `requirements.txt`: Python dependencies required to run the project.
+- **Data Exploration**
+  - Interactive sidebar filters (gender, contract, payment method, etc.)
+- **Key Performance Indicators (KPIs)**
+  - Total customers
+  - Churn rate
+  - Average monthly charges
+- **Visual Insights**
+  - Churn distribution (bar & pie charts)
+  - Contract type vs churn
+  - Charges vs churn (boxplot)
+- **Churn Prediction**
+  - Form-based customer input
+  - Churn probability and prediction using a trained ML model
 
 ---
 
-## Installation
-
-1. Clone the repository:
+## 🗂 Project Structure
 
 ```
-git clone 
-cd 
+
+telco-customer-churn-prediction/
+│
+├── train_model.py           # Model training & hyperparameter tuning
+├── streamlit_app.py         # Streamlit dashboard & prediction app
+├── Telco-Customer-Churn.csv # Dataset
+├── best_rf_model.pkl        # Trained Random Forest pipeline
+├── model_features.pkl       # Feature list used during training
+├── requirements.txt         # Project dependencies
+├── README.md
+
+````
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/Mihir-1709/telco-customer-churn-prediction
+cd telco-customer-churn-prediction
+````
+
+---
+
+### 2️⃣ Create & activate a virtual environment (recommended)
+
+```bash
+python -m venv churn_env
 ```
 
-2. Create a virtual environment (optional but recommended):
+**Windows**
 
-```
-python -m venv venv
-source venv/bin/activate     # On Windows: venv\Scripts\activate
+```bat
+churn_env\Scripts\activate
 ```
 
-3. Install dependencies:
+**macOS / Linux**
 
+```bash
+source churn_env/bin/activate
 ```
+
+---
+
+### 3️⃣ Install dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## Usage
+## 🧠 Model Training
 
-### 1. Train the Model
+Train the model **locally** (recommended before deployment):
 
-Run the training script to preprocess data, tune hyperparameters, and save the model:
-
-```
-python app.py
+```bash
+python train_model.py
 ```
 
-This will generate `best_rf_model.pkl` and `model_features.pkl`.
+This will generate:
+
+* `best_rf_model.pkl`
+* `model_features.pkl`
 
 ---
 
-### 2. Run the Streamlit Dashboard
+## 🖥 Run the Streamlit App
 
-Start the interactive dashboard:
+Launch the dashboard locally:
 
-```
+```bash
 streamlit run streamlit_app.py
 ```
 
-- Explore customer churn data through filters and visualizations.
-- Input customer details in the prediction form to get churn probability and prediction.
+### You can:
+
+* Explore customer churn trends
+* Apply filters dynamically
+* Predict churn probability for new customers
 
 ---
 
-## Dataset
+## 📸 Screenshots
 
-The dataset used is the Telco Customer Churn dataset, containing customer demographics, account information, service usage, and churn labels.
+### 1️⃣ Dashboard Overview & KPIs
+Displays the main dashboard with key metrics including:
+- Total Customers
+- Churn Rate (%)
+- Average Monthly Charges
 
----
-
-## Model
-
-- Random Forest Classifier with hyperparameter tuning via randomized search.
-- Preprocessing includes One-Hot Encoding of categorical variables and median imputation for missing numeric data.
-- Model trained and evaluated with stratified train-test split.
+![Dashboard Overview](screenshots/dashboard_overview.png)
 
 ---
 
-## Improvements & Notes
+### 2️⃣ Interactive Filters
+Sidebar filters to dynamically slice customer data by:
+- Gender
+- Senior Citizen
+- Partner
+- Dependents
+- Internet Service
+- Contract
+- Payment Method
 
-- Hyperparameter tuning uses a reduced search space for efficiency.
-- Model pipeline and features saved for deployment.
-- XGBoost was removed for simplicity; focus on Random Forest.
-- Make sure to keep training and inference feature sets consistent.
-- Future improvements: advanced feature engineering, handling class imbalance, trying other models.
-
----
-
-## License
-
-This project is licensed under the MIT License.
+![Filter Options](screenshots/filters.png)
 
 ---
 
-## Contact
+### 3️⃣ Filtered Customer Data
+Shows a live, filter-driven table of customer records based on selected criteria.
 
-For any questions or collaboration, please contact Modh Mihir at mihirmodh14@gmail.com.
+![Filtered Data Table](screenshots/filtered_data.png)
 
 ---
 
-## Acknowledgments
+### 4️⃣ Churn Visualizations
+Visual insights including:
+- Churn distribution (bar chart)
+- Churn distribution (pie chart)
+- Total charges by churn (box plot)
+- Contract type vs churn (bar chart)
 
-- Dataset sourced from [Kaggle Telco Customer Churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn).
+![Churn Visualizations](screenshots/visualizations.png)
 
-- Built with Python, scikit-learn, Streamlit, and related libraries.
+---
+
+### 5️⃣ Churn Prediction Form
+User-friendly form to input customer details such as:
+- Demographics
+- Tenure
+- Services
+- Billing and payment details
+
+![Prediction Form](screenshots/prediction_form.png)
+
+---
+
+### 6️⃣ Prediction Result
+Displays:
+- Churn prediction (Stay / Churn)
+- Churn probability percentage
+
+![Prediction Result](screenshots/prediction_result.png)
+
+---
+
+## 🌐 Live Demo
+
+🔗 **Live Website:**
+👉 https://telco-customer-churn-prediction-mihir.streamlit.app/
+
+---
+
+## 📊 Dataset
+
+* **Source:** Kaggle – Telco Customer Churn Dataset
+* Contains customer demographics, account information, service usage, and churn labels.
+
+🔗 [https://www.kaggle.com/datasets/blastchar/telco-customer-churn](https://www.kaggle.com/datasets/blastchar/telco-customer-churn)
+
+---
+
+## 🤖 Model Details
+
+* **Algorithm:** Random Forest Classifier
+* **Preprocessing:**
+
+  * One-Hot Encoding for categorical variables
+  * Median imputation for numeric features
+* **Training:**
+
+  * RandomizedSearchCV for hyperparameter tuning
+  * Stratified data split
+* **Output:**
+
+  * Churn prediction (Yes / No)
+  * Churn probability
+
+---
+
+## 🔧 Notes & Improvements
+
+* Model training and inference feature sets are consistent
+* XGBoost removed for simplicity and deployment stability
+* Designed for **Streamlit Cloud compatibility**
+* Future improvements:
+
+  * Class imbalance handling
+  * Feature importance visualization
+  * SHAP / explainability
+  * Additional ML models
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 👤 Author
+
+**Mihir Modh**
+📧 Email: [mihirmodh14@gmail.com](mailto:mihirmodh14@gmail.com)
+🔗 LinkedIn / GitHub: *(add if you want)*
+
+---
+
+## 🙏 Acknowledgments
+
+* Kaggle Telco Customer Churn Dataset
+* Built with **Python, scikit-learn, Streamlit, Pandas, Matplotlib, Seaborn**
+```
