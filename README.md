@@ -206,7 +206,7 @@ This project is licensed under the **MIT License**.
 
 **Mihir Modh**
 📧 Email: [mihirmodh14@gmail.com](mailto:mihirmodh14@gmail.com)
-🔗 LinkedIn / GitHub: *(add if you want)*
+🔗 LinkedIn : https://www.linkedin.com/in/mihir-modh
 
 ---
 
